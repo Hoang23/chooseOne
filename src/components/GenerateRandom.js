@@ -13,15 +13,23 @@ const GenerateRandom = ({ Items }) => {
     return (
 
         <div>
-            <form onSubmit={onSubmit}>
-                <input 
-                    type="Submit" 
-                    value="Generate Random"
-                    onChange={(e) => setItemRandom(e.target.value)}
-                /> 
-            </form>
 
-            <p> Random item is: {itemRandom} </p>
+            { 
+                Items.length > 1 ? 
+                    <form onSubmit={onSubmit}>
+                        <input 
+                            type="Submit" 
+                            value="Generate Random"
+                            onChange={(e) => setItemRandom(e.target.value)}
+                        /> 
+                    </form>  
+                : ""
+            }  
+            
+            {
+                itemRandom !== '' ? <p> Random item is: {itemRandom} </p> : ''
+            }
+            
         </div>
     )
 }

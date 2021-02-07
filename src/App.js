@@ -2,21 +2,20 @@ import './App.css';
 import React, { useState } from 'react';
 import AddItem from './components/AddItem';
 import GenerateRandom from './components/GenerateRandom';
+import AllItems from './components/AllItems';
 
 function App() {
 
   const [Items, setItems] = useState(
     [
-      {
-        id: 1,
-        text: "hello"
-      },
-      {
-        id: 2,
-        text: "test"
-      },
-     
-
+      // {
+      //   id: 1,
+      //   text: "hello"
+      // },
+      // {
+      //   id: 2,
+      //   text: "test"
+      // },
     ]);
 
   const addItem = (text) => {
@@ -33,26 +32,15 @@ function App() {
       )
   }
 
-  // const deleteItem = (del) => {
-  //   setItems(
-  //     Items.filter( (item) => item !== del) 
-  //   ) 
-  // }
- 
-  // const stringFormatItems = (itemsList) => {
-  //   // return itemsList.toString();
-  //   return itemsList.join(' ');
-  // }
 
   return (
     <div className="App">
+      <br/> <br/> <br/> <br/> 
+      <h2>Choose One App</h2>
+      <p> Enter entries and randomly get chosen an item on the list </p>
    
       <AddItem addItem={addItem}/>
-
-      <h5>Items</h5>
-      
-      { Items.map( (item) => <>  <div key={item.id}>{item.text}  <button onClick={deleteItem}>-</button> </div> </>)} 
-      
+      <AllItems Items={Items} deleteItem={deleteItem}/>
       <GenerateRandom Items={Items.map(item => item.text)} /> 
 
     </div>
