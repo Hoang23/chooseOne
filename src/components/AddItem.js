@@ -29,8 +29,6 @@ const AddItem = ({ addItem }) => {
                 /> <br/> <br/>
 
                 <input type='submit' value='add item' />
-                
-                
             </form>
 
             <form onSubmit={ Delete }>

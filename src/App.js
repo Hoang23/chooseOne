@@ -1,8 +1,9 @@
-import './App.css';
 import React, { useState } from 'react';
 import AddItem from './components/AddItem';
 import GenerateRandom from './components/GenerateRandom';
 import AllItems from './components/AllItems';
+import styled from 'styled-components';
+
 
 function App() {
 
@@ -34,17 +35,37 @@ function App() {
 
 
   return (
-    <div className="App">
-      <br/> <br/> <br/> <br/> 
-      <h2>Choose One App</h2>
-      <p> Enter entries and randomly get chosen an item on the list </p>
-   
-      <AddItem addItem={addItem}/>
-      <AllItems Items={Items} deleteItem={deleteItem}/>
-      <GenerateRandom Items={Items.map(item => item.text)} /> 
-
-    </div>
+    <>
+      <Container>
+        <ContentContainer>
+            <Intro>
+              <h1>Choose One Randomizor</h1>
+              <p> Enter entries and randomly get chosen an item on the list </p>
+            </Intro>
+            <AddItem addItem={addItem}/>
+            <AllItems Items={Items} deleteItem={deleteItem}/>
+            <GenerateRandom Items={Items.map(item => item.text)} /> 
+        </ContentContainer>
+      </Container>
+    </>
   );
 }
 
 export default App;
+
+const Container = styled.div`
+  background: lightslategray;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+`;
+
+const ContentContainer = styled.div`
+  margin-top: 7%;
+
+`;
+
+
+const Intro = styled.div`
+
+`;
