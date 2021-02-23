@@ -14,7 +14,6 @@ const GenerateRandom = ({ Items }) => {
     return (
 
         <div>
-
             <Form>
                 { 
                     Items.length > 1 ? 
@@ -31,11 +30,9 @@ const GenerateRandom = ({ Items }) => {
             
             <Output>
                 {
-                    itemRandom !== '' ? <p> Chose: <span> {itemRandom} </span> </p> : ''
+                    itemRandom !== '' ? <p> Result:<span> {itemRandom} </span> </p> : ''
                 }
             </Output>
-            
-            
         </div>
     )
 }
@@ -51,7 +48,9 @@ const Form = styled.div`
         background: white;
         border-radius: 50px;
         width: 10rem;
-        height: 1.5rem;
+        height: 2rem;
+        color: green;
+        
         cursor: pointer;
     }
 `;
@@ -61,5 +60,6 @@ const Output = styled.div`
         font-size: 2rem;
         font-weight: 700;
         color: green;
+        
     }
 `;

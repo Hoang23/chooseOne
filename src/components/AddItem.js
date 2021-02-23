@@ -1,4 +1,5 @@
 import React, {useState} from 'react'
+import styled from 'styled-components';
 
 // addItem is a function that appends 
 const AddItem = ({ addItem }) => {
@@ -17,25 +18,74 @@ const AddItem = ({ addItem }) => {
     }
 
     return (
-        <div>
-             <form onSubmit={onSubmit}>
-                <label >Item: </label> 
+        <>
+            <AddItemContainer>
+            
+                <FormAdd onSubmit={onSubmit}>
+                    {/* <label >Enter the item: </label>  */}
+                     
+                    <TextInput
+                        type="text" 
+                        placeholder="Enter item"
+                        value={text} 
+                        onChange={(e) => setText(e.target.value)}
+                    /> 
 
-                <input 
-                    type="text" 
-                    placeholder="example item"
-                    value={text} 
-                    onChange={(e) => setText(e.target.value)}
-                /> <br/> <br/>
+                    <ButtonAdd type='submit' value='Add item'/>
+                </FormAdd>
+  
+                <FormDelete onSubmit={ Delete }>
+                    <ButtonReset type='submit' value='Reset items'/> 
+                </FormDelete> 
+                {/* <input type='submit' value='add item' /> */}
+                   
+            </AddItemContainer>
 
-                <input type='submit' value='add item' />
-            </form>
-
-            <form onSubmit={ Delete }>
-                <input type='submit' value='reset' />
-            </form>
-        </div>
+        </>
     )
 }
 
 export default AddItem
+
+const AddItemContainer = styled.div`
+    display: flex;
+    margin-top: 3rem;
+`;
+
+const TextInput = styled.input`
+    border: solid 2px green;
+    width: 8rem;
+    height: 1.3rem;
+    margin-right: 1rem;
+
+`;
+
+const ButtonAdd = styled.input`
+    border: solid 2px; 
+    background: green;
+    width: 6rem;
+    height: 1.7rem;
+    cursor: pointer;
+    
+`;
+
+const FormAdd = styled.form`
+    margin-right: .3rem;
+`;
+
+const FormDelete = styled.form`
+    
+`;
+
+const ButtonReset = styled.input`
+    border: solid 2px green; 
+    background: white;
+    width: 6rem;
+    height: 1.7rem;
+    cursor: pointer;
+    color: green;
+    
+`;
+
+
+

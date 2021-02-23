@@ -54,7 +54,7 @@ function App() {
 export default App;
 
 const Container = styled.div`
-  background: lightslategray;
+  background: #FCFBF9; /* #fafafa */
   height: 100vh;
   display: flex;
   justify-content: center;
@@ -67,5 +67,8 @@ const ContentContainer = styled.div`
 
 
 const Intro = styled.div`
-
+  h1 {
+    color: green; /* #efb6b */
+  }
 `;
+
